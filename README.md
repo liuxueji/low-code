@@ -1,24 +1,7 @@
-# low_code
+## 👀可视化平台
 
-## Project setup
-```
-npm install
-```
+### 最近可视化平台很火，于是自己也简单的做了一个，但是功能不齐全，后续有时间会完善
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 演示
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![lowcode](https://liuxueji.oss-cn-guangzhou.aliyuncs.com/lowcode.gif)

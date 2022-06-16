@@ -27,7 +27,7 @@ export default {
     background-color: #ffc300;
     height: 80px;
     h1 {
-      margin-left: 800px;
+      margin-left: 500px;
       line-height: 80px;
       color: #fff;
     }

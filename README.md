@@ -1,24 +1,11 @@
-# drag_demo
+## 拖拽实现
 
-## Project setup
-```
-npm install
-```
+- 组件列表：被拖拽组件添加 draggable="true" 后，组件可以进行拖拽
+- 画布区域：添加@dragover，设置禁止默认样式，不然拖拽不能实现；添加@drop，该方法用户触发拖拽到画布区域释放的事件
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+难点主要在画布区域，需要设置数组，将组件的信息进行存储，通过 v-for 进行输出，并为每一项设置一个唯一的 id，再将偏移量存储到数组中，通过动态样式即可拖拽生成组件
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 拖拽后生成对于信息
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 组件列表：被拖拽组件需要通过 v-for 循环输出，给定一个数组，将组件的类型、名称存储到数组中，通过 mousedown 将组件名传给画布渲染（同级传输），传输方法是：将组件名设置为方法参数，在方法中接收组件名，并赋值给组件内的全局变量（不渲染到页面的数据尽量不要存储到 data 中），画布的渲染列表中进行添加 name 即可，参考添加偏移量
+- 画布区域：接收组件内的偏移量、组件名，通过渲染即可

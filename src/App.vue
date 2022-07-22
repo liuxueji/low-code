@@ -1,28 +1,63 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <left />
+    <center />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+let id = 0
+let compOffsetX
+let compOffsetY
+let compName
+let compType
+let compWidth
+let compHeight
 
+import Left from './views/Left'
+import Center from './views/Center'
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Left,
+    Center,
+  },
+  data () {
+    return {
+      // 生成的组件
+      list: []
+    }
+  },
+  methods: {
+    dragover (e) {
+      e.preventDefault()
+    },
+    onDrop (e) {
+      e.preventDefault()
+      this.list.push(
+        {
+          id: id++,
+          x: e.offsetX - compOffsetX,
+          y: e.offsetY - compOffsetY,
+          name: compName,
+          type: compType,
+          width: compWidth,
+          height: compHeight
+        })
+
+      console.log(this.list)
+    },
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    margin: 0;
+  }
+  #app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
 </style>

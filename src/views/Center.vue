@@ -9,7 +9,8 @@
          v-for="item in list"
          :key="item.id"
          :style="{'left':item.x+'px','top':item.y+'px','width':item.width.value,'height':item.height.value}">
-      <component :is="item.type"
+      <component class="comp"
+                 :is="item.type"
                  :activeCompData='activeCompData'></component>
     </div>
     <div class="activeBorder"
@@ -26,6 +27,15 @@ import imgComp from '../components/imgComp'
 import textComp from '../components/textComp'
 import btnComp from '../components/btnComp'
 import inputComp from '../components/inputComp'
+import switchComp from '../components/switchComp'
+import radioComp from '../components/radioComp'
+import checkboxComp from '../components/checkboxComp'
+import dialogComp from '../components/dialogComp'
+import formComp from '../components/formComp'
+import progressBarComp from '../components/progressBarComp'
+import wordCloudComp from '../components/wordCloudComp'
+import floatBallComp from '../components/floatBallComp'
+
 export default {
   data () {
     return {
@@ -41,7 +51,15 @@ export default {
     imgComp,
     textComp,
     btnComp,
-    inputComp
+    inputComp,
+    switchComp,
+    radioComp,
+    checkboxComp,
+    dialogComp,
+    formComp,
+    progressBarComp,
+    wordCloudComp,
+    floatBallComp
   },
   props: {
     activeCompData: {
@@ -67,7 +85,6 @@ export default {
       this.startPositionY = e.clientY
       // document.addEventListener('mousemove', this.mouseMove, true)
       // document.addEventListener('mouseup', this.mouseUp, true)
-
     },
     checkComp (e) {
       let node = e.target
@@ -129,7 +146,6 @@ export default {
 <style>
   .container {
     flex: 1;
-    background-color: #eee;
     position: relative;
   }
   .newComp {
@@ -139,5 +155,7 @@ export default {
   .activeBorder {
     border: 1px solid red;
     position: absolute;
+  }
+  .comp {
   }
 </style>

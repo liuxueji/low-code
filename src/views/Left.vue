@@ -35,11 +35,11 @@ export default {
   }
   .comp1 {
     width: 100px;
-    height: 100px;
+    height: 50px;
     background-color: #fff;
-    margin: 10px;
-    font-size: 24px;
+    margin: 10px auto;
+    font-size: 20px;
     text-align: center;
-    line-height: 100px;
+    line-height: 50px;
   }
 </style>

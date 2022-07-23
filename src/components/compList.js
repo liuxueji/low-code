@@ -48,13 +48,13 @@ const compList = [{
     type: 'btnComp',
     width: {
       name: '宽度',
-      value: '70px',
+      value: '',
       type: 'input',
       placeholder: '请输入宽度'
     },
     height: {
       name: '高度',
-      value: '40px',
+      value: '',
       type: 'input',
       placeholder: '请输入高度'
     }
@@ -71,6 +71,134 @@ const compList = [{
     height: {
       name: '高度',
       value: '40px',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '开关组件',
+    type: 'switchComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '单选框组件',
+    type: 'radioComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '复选框组件',
+    type: 'checkboxComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '模态框组件',
+    type: 'dialogComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '表格组件',
+    type: 'formComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '进度条组件',
+    type: 'progressBarComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '词云组件',
+    type: 'wordCloudComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
+  },
+  {
+    name: '悬浮球组件',
+    type: 'floatBallComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
       type: 'input',
       placeholder: '请输入高度'
     }

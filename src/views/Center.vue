@@ -1,5 +1,6 @@
 <template>
   <div class="container"
+       ref="con"
        @dragover="dragover"
        @drop="onDrop"
        @click="checkComp">
@@ -12,6 +13,7 @@
     </div>
     <div class="activeBorder"
          @mousedown="mousedown"
+         @mousemove="mousemove"
          :style="activeStyle"
          v-if="activeComp">
     </div>
@@ -29,7 +31,9 @@ export default {
       list: [],
       id: 0,
       activeStyle: {},
-      activeComp: null
+      activeComp: null,
+      startPositionX: 0,
+      startPositionY: 0
     }
   },
   components: {
@@ -52,24 +56,57 @@ export default {
       this.list.push(info)
     },
     mousedown (e) {
-      // this.activeBorder.x = e.clientX
-      // this.activeBorder.y = e.clientX
+      // 相对于窗口的位置
+      this.startPositionX = e.clientX
+      this.startPositionY = e.clientY
       // document.addEventListener('mousemove', this.mouseMove, true)
       // document.addEventListener('mouseup', this.mouseUp, true)
-      console.log(e);
 
     },
     checkComp (e) {
-      if (e.target.id) {
-        this.activeComp = e.target
-        this.activeStyle = e.target.style.cssText
+      let node = e.target
+      if (node.id) {
+        // 获取选中的节点
+        this.activeComp = node
+        // 获取选中节点的样式
+        this.activeStyle = node.style.cssText
+      } else {
+        let count = 0
+        // 如果当前节点的id不存在，就找当前节点的父节点的id，依次循环，直到找到为止
+        while (!node.id) {
+          node = node.parentNode
+          count++
+          if (count > 10) return this.activeComp = null
+        }
+        // 获取选中的节点
+        this.activeComp = node
+        // 获取选中节点的样式
+        this.activeStyle = node.style.cssText
       }
-      if (e.target.parentNode.id) {
-        this.activeComp = e.target.parentNode
-        this.activeStyle = e.target.parentNode.style.cssText
-        console.log(e.target.parentNode);
+      // console.log(this.activeComp.getBoundingClientRect().left)
+    },
+    mousemove (e) {
+      if (e.which == 1) {
+        // 获取偏移量，通过当前位置-初始位置
+        const offsetX = e.clientX - this.startPositionX;
+        const offsetY = e.clientY - this.startPositionY;
+        const com = document.getElementById(this.activeComp.id)
+        //元素移动后的位置，通过元素初始位置 + 偏移量 ,通过assign拷贝到组件的style中
+        Object.assign(com.style, {
+          left: com.offsetLeft + offsetX + 'px',
+          top: com.offsetTop + offsetY + 'px'
+        })
+        // 顺便拷贝一份给选中框
+        const border = document.querySelector(".activeBorder")
+        Object.assign(border.style, {
+          left: com.offsetLeft + offsetX + 'px',
+          top: com.offsetTop + offsetY + 'px'
+        })
+        // 将当前位置设置为下一次的初始位置
+        this.startPositionX = e.clientX;
+        this.startPositionY = e.clientY;
+        console.log(com.offsetLeft)
       }
-
     }
   },
 }

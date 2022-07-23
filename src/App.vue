@@ -2,6 +2,7 @@
   <div id="app">
     <left />
     <center />
+    <right />
   </div>
 </template>
 
@@ -16,11 +17,13 @@ let compHeight
 
 import Left from './views/Left'
 import Center from './views/Center'
+import Right from './views/Right'
 export default {
   name: "App",
   components: {
     Left,
     Center,
+    Right
   },
   data () {
     return {
@@ -44,7 +47,6 @@ export default {
           width: compWidth,
           height: compHeight
         })
-
       console.log(this.list)
     },
   },

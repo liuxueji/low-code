@@ -8,7 +8,7 @@
          class="newComp"
          v-for="item in list"
          :key="item.id"
-         :style="{'left':item.x+'px','top':item.y+'px','width':item.width,'height':item.height}">
+         :style="{'left':item.x+'px','top':item.y+'px','width':item.width.value,'height':item.height.value}">
       <component :is="item.type"></component>
     </div>
     <div class="activeBorder"

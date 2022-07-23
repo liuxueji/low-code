@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <left />
-    <center />
-    <right />
+    <center @myactiveComp="myactiveComp"
+            :activeCompData='activeCompData' />
+    <right @updateComp='updateComp'
+           :activeCompData='activeCompData' />
   </div>
 </template>
 
@@ -28,7 +30,8 @@ export default {
   data () {
     return {
       // 生成的组件
-      list: []
+      list: [],
+      activeCompData: {}
     }
   },
   methods: {
@@ -47,8 +50,14 @@ export default {
           width: compWidth,
           height: compHeight
         })
-      console.log(this.list)
+      // console.log(this.list)
     },
+    myactiveComp (data) {
+      this.activeCompData = data
+    },
+    updateComp (data) {
+      this.activeCompData = data
+    }
   },
 };
 </script>

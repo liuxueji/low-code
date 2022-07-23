@@ -24,7 +24,8 @@ const compList = [{
       value: '24',
       type: 'input',
       placeholder: '请输入字体大小'
-    }
+    },
+    data: 'helloWorld!'
   },
   {
     name: '图片组件',

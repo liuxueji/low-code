@@ -9,7 +9,8 @@
          v-for="item in list"
          :key="item.id"
          :style="{'left':item.x+'px','top':item.y+'px','width':item.width.value,'height':item.height.value}">
-      <component :is="item.type"></component>
+      <component :is="item.type"
+                 :activeCompData='activeCompData'></component>
     </div>
     <div class="activeBorder"
          @mousedown="mousedown"
@@ -41,6 +42,11 @@ export default {
     textComp,
     btnComp,
     inputComp
+  },
+  props: {
+    activeCompData: {
+      type: Object
+    }
   },
   methods: {
     dragover (e) {
@@ -83,6 +89,14 @@ export default {
         // 获取选中节点的样式
         this.activeStyle = node.style.cssText
       }
+      let myactiveComp
+      this.list.forEach(item => {
+        if (item.id == this.activeComp.id)
+          myactiveComp = item
+      });
+      // console.log(myactiveComp)
+      // 将激活的组件派发到右侧编辑区
+      this.$emit('myactiveComp', myactiveComp)
       // console.log(this.activeComp.getBoundingClientRect().left)
     },
     mousemove (e) {
@@ -105,7 +119,7 @@ export default {
         // 将当前位置设置为下一次的初始位置
         this.startPositionX = e.clientX;
         this.startPositionY = e.clientY;
-        console.log(com.offsetLeft)
+        // console.log(com.offsetLeft)
       }
     }
   },

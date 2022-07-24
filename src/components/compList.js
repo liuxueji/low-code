@@ -202,6 +202,22 @@ const compList = [{
       type: 'input',
       placeholder: '请输入高度'
     }
+  },
+  {
+    name: '滑块验证组件',
+    type: 'slideComp',
+    width: {
+      name: '宽度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入宽度'
+    },
+    height: {
+      name: '高度',
+      value: '',
+      type: 'input',
+      placeholder: '请输入高度'
+    }
   }
 ]
 

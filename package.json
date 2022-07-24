@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "lxj-ui": "^1.2.2",
+    "lxj-ui": "^1.2.4",
     "mockjs": "^1.1.0",
     "vue": "^2.6.11"
   },

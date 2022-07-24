@@ -35,6 +35,7 @@ import formComp from '../components/formComp'
 import progressBarComp from '../components/progressBarComp'
 import wordCloudComp from '../components/wordCloudComp'
 import floatBallComp from '../components/floatBallComp'
+import slideComp from '../components/slideComp'
 
 export default {
   data () {
@@ -59,7 +60,8 @@ export default {
     formComp,
     progressBarComp,
     wordCloudComp,
-    floatBallComp
+    floatBallComp,
+    slideComp
   },
   props: {
     activeCompData: {
@@ -143,7 +145,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .container {
     flex: 1;
     position: relative;
